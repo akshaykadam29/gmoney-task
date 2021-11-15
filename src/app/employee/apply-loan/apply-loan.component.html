@@ -1,0 +1,40 @@
+<mat-card>
+  <form [formGroup]="applyLoanForm" (submit)="onApplyLoan()">
+    <div>
+      <p> Principle Amount(Rs.) :- {{ initialPrinciple.value }}</p>
+      <mat-slider #initialPrinciple (change)="updateSetting($event)" step="1000" min="0" max="100000"
+        [value]="initialPrinciple" formControlName="principleInput"></mat-slider>
+    </div>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Rate of Interest in %" formControlName="rateOfInterest"
+        [readonly]="staticRoi">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="Duration in Months" formControlName="duration">
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Calculate</button>
+  </form>
+</mat-card>
+<hr>
+<p>Total Interest:- {{ totalInterestAmount }}</p>
+<!-- <p>Per month EMI:- {{ perMonthEmi }}</p> -->
+<p>Total Payable Amount:- {{ totalPayableAmount }}</p>
+
+<hr>
+
+<a class="btn btn-outline-primary btn-lg active" role="button" aria-pressed="true">In progress</a>
+<a class="btn btn-outline-danger btn-lg active" role="button" aria-pressed="true">On hold</a>
+<a class="btn btn-outline-success btn-lg active" role="button" aria-pressed="true">On Boarded</a>
+
+<hr>
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option1" autocomplete="off"> Active
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option2" autocomplete="off"> Radio
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="options" id="option3" autocomplete="off"> Radio
+  </label>
+</div>

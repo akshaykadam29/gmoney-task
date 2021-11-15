@@ -18,10 +18,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSliderModule } from '@angular/material/slider';
+
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { ApplyLoanComponent } from './employee/apply-loan/apply-loan.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     HeaderComponent,
     EmployeeListComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ApplyLoanComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     MatButtonModule,
     MatCardModule,
     MatRadioModule,
+    MatSliderModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

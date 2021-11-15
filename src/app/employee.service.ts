@@ -27,7 +27,7 @@ export class EmployeeService {
   }
 
   getAllEmployess(){
-    this.http.get<{result: any[]}>('http://localhost:3000/api/employee')
+    this.http.get<{result: any}>('http://localhost:3000/api/employee')
       .subscribe(response => {
         // console.log(response);
         this.employees = response.result;
